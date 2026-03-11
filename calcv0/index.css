@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-.app {
+.app-1 {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -14,7 +14,7 @@
     background-color: #f0f0f0;
 }
 
-.display {
+.display-1 {
     width: 250px;
     height: 60px;
     background-color: #fff;
@@ -28,13 +28,13 @@
 }
 
 
-.buttons {
+.buttons-1 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
 }
 
-.button {
+.button-1 {
     display: flex;
     align-items: center;
     justify-content: center;
