@@ -53,27 +53,28 @@ function plus(a, b) {
 function minus(a, b) {
     return a - b;
 }
+
 function multiply(a, b) {
     return a * b;
 }
+
 function divide(a, b) {
     return a / b;
 }
- 
-// function minus() {}
-// function divide() {}
-// function multiply() {}
 
 function calc(a,b, operator) {
     if (operator === '/') {
         return divide(a, b);
     }
+
     if (operator === '*') {
         return multiply(a, b);
     }
+
      if (operator === '-') {
         return minus(a, b);
     }
+
     if (operator === '+') {
         return plus(a, b);
     }
