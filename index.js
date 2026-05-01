@@ -6,14 +6,19 @@
  * 3. как то изменяем контент страницы или стили
  */
 
-const display = document.querySelector('#display');
-const buttons = document.querySelectorAll('.button');
+const display = document.querySelector("#display");
+const aElement = document.querySelector("#a");
+const operatorElement = document.querySelector("#operator");
+const bElement = document.querySelector("#b");
+const resultElement = document.querySelector("#result");
 
-buttons.forEach(button => {
-    button.addEventListener('click', () => {
-        console.log('clicked');
-        display.textContent = 'OUCH, clicked!';
-    });
+const buttons = document.querySelectorAll(".button");
+
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const value = button.textContent;
+    display.textContent = value;
+  });
 });
 
 // 1. нужно получить все кнопки
@@ -47,41 +52,41 @@ let operator = null;
  */
 
 function plus(a, b) {
-    return a + b;
+  return a + b;
 }
 
 function minus(a, b) {
-    return a - b;
+  return a - b;
 }
 
 function multiply(a, b) {
-    return a * b;
+  return a * b;
 }
 
 function divide(a, b) {
-    return a / b;
+  return a / b;
 }
 
-function calc(a,b, operator) {
-    if (operator === '/') {
-        return divide(a, b);
-    }
+function calc(a, b, operator) {
+  if (operator === "/") {
+    return divide(a, b);
+  }
 
-    if (operator === '*') {
-        return multiply(a, b);
-    }
+  if (operator === "*") {
+    return multiply(a, b);
+  }
 
-     if (operator === '-') {
-        return minus(a, b);
-    }
+  if (operator === "-") {
+    return minus(a, b);
+  }
 
-    if (operator === '+') {
-        return plus(a, b);
-    }
+  if (operator === "+") {
+    return plus(a, b);
+  }
 }
 
 // Тест кейсы:
-console.log(calc(1, 2, '+')); // 3
-console.log(calc(1, 2, '-')); // -1
-console.log(calc(1, 2, '*')); // 2
-console.log(calc(1, 2, '/')); // 0.5
+console.log(calc(1, 2, "+")); // 3
+console.log(calc(1, 2, "-")); // -1
+console.log(calc(1, 2, "*")); // 2
+console.log(calc(1, 2, "/")); // 0.5
