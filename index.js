@@ -15,10 +15,7 @@ const resultElement = document.querySelector("#result");
 const buttons = document.querySelectorAll(".button");
 
 buttons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const value = button.textContent;
-    display.textContent = value;
-  });
+  button.addEventListener("click", onButtonClick);
 });
 
 // 1. нужно получить все кнопки
@@ -36,9 +33,20 @@ buttons.forEach((button) => {
 
 let a = null;
 let b = null;
-let operator = null;
+let operator = "";
+let result = null;
 
-// function onButtonClick(event) {}
+function onButtonClick(event) {
+  const value = event.target.dataset.value;
+
+  if (isNumber(value)) {
+    if (a === null) {
+      clear();
+      a = Number(value);
+      aElement.textContent = b;
+    }
+  }
+}
 // function isNumber(value) {}
 // function isOperator(value) {}
 // function updateDisplay(value) {}
