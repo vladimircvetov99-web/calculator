@@ -5,6 +5,7 @@
  * 2. вешаем обработчики событий
  * 3. как то изменяем контент страницы или стили
  */
+// 1 . Получаешь элементы со страницы и обновляешь их
 
 const display = document.querySelector("#display");
 const aElement = document.querySelector("#a");
@@ -39,17 +40,84 @@ let result = null;
 function onButtonClick(event) {
   const value = event.target.dataset.value;
 
+  // 2. Определение что нажали
+
+  // 3 . получение первого числа
+
   if (isNumber(value)) {
-    if (a === null) {
-      clear();
-      a = Number(value);
-      aElement.textContent = b;
+    if (operator === "") {
+      if (a === null) {
+        clear();
+      }
+      a = a === null ? value : a + value;
+      aElement.textContent = a;
+    } else {
+      // 3. получение второго числа
+
+      b = b === null ? value : b + value;
+      bElement.textContent = b;
+    }
+    return;
+  }
+
+  if (isOperator(value)) {
+    // 4. получение оператора
+    if (operator === "" && a !== null) {
+      operator = value;
+      operatorElement.textContent = operator;
+    }
+    return;
+  }
+
+  // 5. получение результата
+
+  if (value === "=") {
+    if (a !== null && b !== null && operator !== "") {
+      result = calc(Number(a), Number(b), operator);
+      resultElement.textContent = `=${result}`;
+
+      a = null;
+      b = null;
+      operator = "";
+      result = null;
     }
   }
 }
-// function isNumber(value) {}
-// function isOperator(value) {}
-// function updateDisplay(value) {}
+
+// 6. Функция очистки ;
+
+function clear() {
+  aElement.textContent = "";
+  operatorElement.textContent = "";
+  bElement.textContent = "";
+  resultElement.textContent = "";
+}
+
+function isNumber(value) {
+  if (
+    value === "0" ||
+    value === "1" ||
+    value === "2" ||
+    value === "3" ||
+    value === "4" ||
+    value === "5" ||
+    value === "6" ||
+    value === "7" ||
+    value === "8" ||
+    value === "9"
+  ) {
+    return true;
+  }
+
+  return false;
+}
+
+function isOperator(value) {
+  if (value === "+" || value === "-" || value === "*" || value === "/") {
+    return true;
+  }
+  return false;
+}
 
 /**
  * Business logic
@@ -72,6 +140,9 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
+  if (b === 0) {
+    return "Ошибка";
+  }
   return a / b;
 }
 
