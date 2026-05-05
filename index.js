@@ -12,12 +12,16 @@ const aElement = document.querySelector("#a");
 const operatorElement = document.querySelector("#operator");
 const bElement = document.querySelector("#b");
 const resultElement = document.querySelector("#result");
+const allClearButton = document.querySelector('[data-all-clear]')
+const deleteButton = document.querySelector('[data-delete]')
 
 const buttons = document.querySelectorAll(".button");
 
 buttons.forEach((button) => {
   button.addEventListener("click", onButtonClick);
+  allClearButton.addEventListener("click", clear )
 });
+
 
 // 1. нужно получить все кнопки
 // 2. нужно повестить обработчик событий на каждую кнопку
@@ -91,6 +95,11 @@ function clear() {
   operatorElement.textContent = "";
   bElement.textContent = "";
   resultElement.textContent = "";
+
+  a = null;
+  b = null;
+  operator = "";
+  result = null;
 }
 
 function isNumber(value) {
