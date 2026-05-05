@@ -12,14 +12,15 @@ const aElement = document.querySelector("#a");
 const operatorElement = document.querySelector("#operator");
 const bElement = document.querySelector("#b");
 const resultElement = document.querySelector("#result");
-const allClearButton = document.querySelector('[data-all-clear]')
-const deleteButton = document.querySelector('[data-delete]')
+const allClearButton = document.querySelector('[data-all-clear]');
+const deleteButton = document.querySelector('[data-delete]');
 
 const buttons = document.querySelectorAll(".button");
 
 buttons.forEach((button) => {
   button.addEventListener("click", onButtonClick);
-  allClearButton.addEventListener("click", clear )
+  allClearButton.addEventListener("click", clear );
+  deleteButton.addEventListener("click", deleteOne);
 });
 
 
@@ -53,10 +54,26 @@ function onButtonClick(event) {
       if (a === null) {
         clear();
       }
+
+      /**
+       * if (a === null) {
+         a = value;
+        } else {
+          a = a + value;
+        }
+       */
       a = a === null ? value : a + value;
       aElement.textContent = a;
     } else {
       // 3. получение второго числа
+
+      /**
+       * if (b === null) {
+         b = value;
+        } else {
+          b = b + value;
+        }
+       */
 
       b = b === null ? value : b + value;
       bElement.textContent = b;
@@ -90,6 +107,7 @@ function onButtonClick(event) {
 
 // 6. Функция очистки ;
 
+
 function clear() {
   aElement.textContent = "";
   operatorElement.textContent = "";
@@ -101,6 +119,19 @@ function clear() {
   operator = "";
   result = null;
 }
+
+/**
+ * Что должна делать эта функция:
+ * 1. При вводе числа a должен удаляться последний символ
+ * 2. При вводе числа b должен удаляться последний символ
+ * 3. Если активное число пустое то кнопка DEL ничего не должна делать
+ */
+
+function deleteOne() {
+  
+}
+
+
 
 function isNumber(value) {
   if (
