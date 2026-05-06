@@ -128,6 +128,10 @@ function clear() {
  */
 
 function deleteOne() {
+  if (operator === ""){
+
+    if (!a) return;
+    
  if (a) {
   a = a.toString();
   a = a.slice(0, -1); 
@@ -137,6 +141,12 @@ function deleteOne() {
     a = null;
   }
  }
+ return;
+ }
+
+  if (operator !== ""){
+
+     if (!b) return;
 
   if (b) {
   b = b.toString();
@@ -147,11 +157,7 @@ function deleteOne() {
     b = null;
   }
  }
-
- if(!a || !b) {
-  return
- }
-
+  }
 }
 
 
