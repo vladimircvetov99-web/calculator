@@ -128,8 +128,36 @@ function clear() {
  */
 
 function deleteOne() {
-  
+ if (a) {
+  a = a.toString();
+  a = a.slice(0, -1); 
+  // Это удаляет последний символ
+  aElement.textContent = a;
+  if(a == "") {
+    a = null;
+  }
+ }
+
+  if (b) {
+  b = b.toString();
+  b = b.slice(0, -1); 
+  // Это удаляет последний символ
+  bElement.textContent = b;
+  if(b == "") {
+    b = null;
+  }
+ }
+
+ if(!a || !b) {
+  return
+ }
+
 }
+
+
+
+
+
 
 
 
@@ -204,8 +232,4 @@ function calc(a, b, operator) {
   }
 }
 
-// Тест кейсы:
-console.log(calc(1, 2, "+")); // 3
-console.log(calc(1, 2, "-")); // -1
-console.log(calc(1, 2, "*")); // 2
-console.log(calc(1, 2, "/")); // 0.5
+
