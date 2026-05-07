@@ -17,11 +17,20 @@ body {
     justify-content: center;
     align-items: center;
     font-family: Arial ;
+   background: -webkit-linear-gradient(90deg, #e6c396,#de4c71,#1925bb);background: linear-gradient(90deg, #e6c396,#de4c71,#1925bb);
+    }
+
+    .app {
+        background: -webkit-linear-gradient(90deg, #ababab,#d0d0d0,#c6c6c6);background: linear-gradient(90deg, #ababab,#d0d0d0,#c6c6c6);
+        padding: 25px;
+        border-radius: 5px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 2);
     }
 
 .display {
     width: 270px;
-    height: 60px;
+    height: auto;
+    min-height: 60px;
     margin-bottom: 10px;
     font-size: 30px;
     border: 1px solid var(--border-color);
@@ -29,6 +38,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all; 
+    white-space: normal;
 }
 
 .buttons {
@@ -38,8 +51,21 @@ body {
 }
 
 button {
-    height: 45px;
+    height: 60px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
     font-size: 15px;
     cursor: pointer;
+    color: #ff00ff;
 }
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.big-btn {
+    grid-column: span 2;
+}
+
+
 

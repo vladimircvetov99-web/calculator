@@ -14,13 +14,15 @@ const bElement = document.querySelector("#b");
 const resultElement = document.querySelector("#result");
 const allClearButton = document.querySelector('[data-all-clear]');
 const deleteButton = document.querySelector('[data-delete]');
+const decimalButton = document.querySelector("[data-decimal]")
 
 const buttons = document.querySelectorAll(".button");
 
 buttons.forEach((button) => {
   button.addEventListener("click", onButtonClick);
-  allClearButton.addEventListener("click", clear );
+  allClearButton.addEventListener("click", clear);
   deleteButton.addEventListener("click", deleteOne);
+  decimalButton.addEventListener("click", Decimal);
 });
 
 
@@ -128,37 +130,79 @@ function clear() {
  */
 
 function deleteOne() {
-  if (operator === ""){
+  if (operator === "") {
 
     if (!a) return;
-    
- if (a) {
-  a = a.toString();
-  a = a.slice(0, -1); 
-  // Это удаляет последний символ
-  aElement.textContent = a;
-  if(a == "") {
-    a = null;
+
+    if (a) {
+      a = a.toString();
+      a = a.slice(0, -1);
+      // Это удаляет последний символ
+      aElement.textContent = a;
+      if (a == "") {
+        a = null;
+      }
+    }
+    return;
   }
- }
- return;
- }
 
-  if (operator !== ""){
+  if (operator !== "") {
 
-     if (!b) return;
+    if (!b) return;
 
-  if (b) {
-  b = b.toString();
-  b = b.slice(0, -1); 
-  // Это удаляет последний символ
-  bElement.textContent = b;
-  if(b == "") {
-    b = null;
-  }
- }
+    if (b) {
+      b = b.toString();
+      b = b.slice(0, -1);
+      // Это удаляет последний символ
+      bElement.textContent = b;
+      if (b == "") {
+        b = null;
+      }
+    }
   }
 }
+
+/**
+ * Что должна делать эта функция:
+ * 1. При нажатии на кнопку точки , точка должна выводиться на экран. 
+ * 2. При вводе числа а точка должна выводиться на экран после числа и взаимодействовать с числом a .
+ * 3. При вводе числа b число точка должна выводиться на экран после числа и взаимодействовать с числом b .
+ */
+
+  function Decimal() {
+  
+   if (operator === "") {
+    // есть ли оператор + - * / ?
+    if (a === null || a === "") {
+      a = ".";
+      // есть ли число ? , если нет то добавим точку 
+    }
+    // содержит ли строка какой-то символ
+
+      // содержит ли строка какой-то символ?
+    else if (!a.includes(".")) {
+      a += ".";
+    }
+
+    // Берем значчение а и показывваем  его на экране 
+    aElement.textContent = a;
+  }
+
+  if (operator !== "") {
+    if(b === null || b === "") {
+      b = ".";
+    }
+    else if (!b.includes(".")) {
+      b += ".";
+    }
+
+    bElement.textContent = b;
+  }
+
+  
+}
+
+
 
 
 
