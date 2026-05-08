@@ -5,11 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="stylesheet" href="calcv0/index.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div id="V0" class="app"></div>
+    <!-- <div id="V0" class="app-1"></div> -->
 
+    <div class="app">
+        <div class="display" id="display">
+            <span id="a">1</span>
+            <span id="operator">+</span>
+            <span id="b">4</span>
+            <span id="result">=5</span>
+        </div>
+        <div class="buttons">
+
+            <button class="big-btn" data-all-clear>AC</button>
+            <button class="big-btn" data-delete>DEL</button>
+            
+            <button class="button" data-value="1">1</button>
+            <button class="button" data-value="2">2</button>
+            <button class="button" data-value="3">3</button>
+            <button class="button" data-value="-">-</button>
+
+            <button class="button" data-value="4">4</button>
+            <button class="button" data-value="5">5</button>
+            <button class="button" data-value="6">6</button>
+            <button class="button" data-value="+">+</button>
+
+            <button class="button" data-value="7">7</button>
+            <button class="button" data-value="8">8</button>
+            <button class="button" data-value="9">9</button>
+            <button class="button" data-value="*">*</button>
+
+            <button class="button" data-decimal=".">.</button>
+            <button class="button" data-value="0">0</button>
+            <button class="button" data-value="=">=</button>
+            <button class="button" data-value="/">/</button>
+
+            
+
+            
+        </div>
+    </div>
+
+
+    <script src="index.js"></script>
     <script src="calcv0/index.js"></script>
 </body>
 </html>
