@@ -12,9 +12,9 @@ const aElement = document.querySelector("#a");
 const operatorElement = document.querySelector("#operator");
 const bElement = document.querySelector("#b");
 const resultElement = document.querySelector("#result");
-const allClearButton = document.querySelector('[data-all-clear]');
-const deleteButton = document.querySelector('[data-delete]');
-const decimalButton = document.querySelector("[data-decimal]")
+const allClearButton = document.querySelector("[data-all-clear]");
+const deleteButton = document.querySelector("[data-delete]");
+const decimalButton = document.querySelector("[data-decimal]");
 
 const buttons = document.querySelectorAll(".button");
 
@@ -24,7 +24,6 @@ buttons.forEach((button) => {
   deleteButton.addEventListener("click", deleteOne);
   decimalButton.addEventListener("click", Decimal);
 });
-
 
 // 1. нужно получить все кнопки
 // 2. нужно повестить обработчик событий на каждую кнопку
@@ -96,7 +95,7 @@ function onButtonClick(event) {
 
   if (value === "=") {
     if (a !== null && b !== null && operator !== "") {
-      result = calc(Number(a), Number(b), operator);
+      result = Number(calc(Number(a), Number(b), operator).toFixed(2));
       resultElement.textContent = `=${result}`;
 
       a = null;
@@ -108,7 +107,6 @@ function onButtonClick(event) {
 }
 
 // 6. Функция очистки ;
-
 
 function clear() {
   aElement.textContent = "";
@@ -131,7 +129,6 @@ function clear() {
 
 function deleteOne() {
   if (operator === "") {
-
     if (!a) return;
 
     if (a) {
@@ -147,7 +144,6 @@ function deleteOne() {
   }
 
   if (operator !== "") {
-
     if (!b) return;
 
     if (b) {
@@ -164,52 +160,54 @@ function deleteOne() {
 
 /**
  * Что должна делать эта функция:
- * 1. При нажатии на кнопку точки , точка должна выводиться на экран. 
+ * 1. При нажатии на кнопку точки , точка должна выводиться на экран.
  * 2. При вводе числа а точка должна выводиться на экран после числа и взаимодействовать с числом a .
  * 3. При вводе числа b число точка должна выводиться на экран после числа и взаимодействовать с числом b .
  */
 
-  function Decimal() {
-  
-   if (operator === "") {
+function Decimal() {
+  if (operator === "") {
     // есть ли оператор + - * / ?
     if (a === null || a === "") {
       a = ".";
-      // есть ли число ? , если нет то добавим точку 
+
+      // есть ли число ? , если нет то добавим точку
     }
     // содержит ли строка какой-то символ
 
-      // содержит ли строка какой-то символ?
+    // содержит ли строка какой-то символ?
     else if (!a.includes(".")) {
       a += ".";
     }
 
-    // Берем значчение а и показывваем  его на экране 
+    // Берем значчение а и показывваем  его на экране
     aElement.textContent = a;
   }
 
   if (operator !== "") {
-    if(b === null || b === "") {
+    if (b === null || b === "") {
       b = ".";
-    }
-    else if (!b.includes(".")) {
+    } else if (!b.includes(".")) {
       b += ".";
     }
 
     bElement.textContent = b;
   }
-
-  
 }
 
-
-
-
-
-
-
-
-
+function binaryToDecimal() {
+  if (operator === "") {
+    if (a) {
+      a = parseInt(a, 2).toString();
+      aElement.textContent = a;
+    }
+  } else {
+    if (b) {
+      b = parseInt(b, 2).toString();
+      bElement.textContent = b;
+    }
+  }
+}
 
 function isNumber(value) {
   if (
@@ -281,5 +279,3 @@ function calc(a, b, operator) {
     return plus(a, b);
   }
 }
-
-
